@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    #slider {
+      width: 200px;
+      height: 250px;
+    }
+
+    .pic1 {
+      background-image: url(0.png);
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .pic2 {
+        background-image: url(1.png);
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .pic3 {
+        background-image: url(2.png);
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .pic4 {
+        background-image: url(3.png);
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .pic5 {
+        background-image: url(4.png);
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+    .pic6 {
+        background-image: url(5.png);
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+    .pic7 {
+        background-image: url(6.png);
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+    .pic8 {
+        background-image: url(7.png);
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+    .pic9 {
+        background-image: url(8.png);
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+    .pic10 {
+        background-image: url(9.png);
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+  </style>
+  <script language="javascript">
+    startdate = new Date();
+    clockStart = startdate.getTime();
+    function initStopwatch() {
+      var thisTime = new Date();
+      return (thisTime.getTime() - clockStart)/1000;
+    }
+    function getSecs() {
+      var tSecs = Math.round(initStopwatch());
+      var iSecs = tSecs % 60;
+      var iMins = Math.round((tSecs-30)/60);
+      var sSecs ="" + ((iSecs > 9) ? iSecs : "0" + iSecs);
+      var sMins ="" + ((iMins > 9) ? iMins : "0" + iMins);
+      document.getElementById("timer-counter").innerHTML = sMins+":"+sSecs;
+      setTimeout('getSecs()', 1000);
+    }
+window.onload = function() {
+    getSecs();
+}
+</script>
+</head>
+<body>
+ <span id='timer-counter' style='font-weight:bold;'></span>
+
+ <div id="slider"></div>
+  <script>
+    (function changeColor(currentNumber){
+      currentNumber++;
+      if(currentNumber >10){
+        currentNumber = 1;
+      }
+      document.getElementById('slider').setAttribute('class', 'pic' + currentNumber);
+      setTimeout(function(){
+        changeColor(currentNumber)
+      }, 1000); 
+    })(0);
+  
+</script>
+
+</body>
+</html>
